@@ -4,10 +4,6 @@ package pbo.f01;
  * 12S22044 - Jufourlisa Sirait
  */
 
- import java.util.Scanner;
- import java.util.ArrayList;
- import java.util.Collections;
- import java.util.Comparator;
  import java.util.*;
 
 import pbo.f01.model.Dorm;
@@ -26,6 +22,12 @@ public class App {
 
             factory = Persistence.createEntityManagerFactory("dormy_pu");
             entityManager = factory.createEntityManager();
+
+            displayAllContacts();
+            clearTables();
+            seedTables();
+            displayAllContacts();
+
 
         
         entityManager.close();
@@ -81,6 +83,7 @@ public class App {
 
             Dorm a = new Dorm(asrama, maxkapasitas, jenis);
             dorms.add(a);
+            Dorm cDorm = new Dorm (asrama, maxkapasitas, jenis);
             // System.out.println(a);
         } else if (inputSegments[0].equals("assign")) {
             String nim = inputSegments[1];
@@ -124,9 +127,22 @@ public class App {
             }
         }
 
+        //entityManager.persist(cDorm);
 
         entityManager.flush();
         entityManager.getTransaction().commit();
     }
-    }   
+    }
+    
+    public static void clearTables() {
+        String jpql = "DELETE FROM Dorm.c";
+
+        entityManager.getTransaction().begin();
+
+        int effected = entityManager.createQuery(jpql).executeUpdate();
+        entityManager.flush();
+        entityManager.getTransaction().commit();
+        System.out.println("brsih");
+    }
+    
 }

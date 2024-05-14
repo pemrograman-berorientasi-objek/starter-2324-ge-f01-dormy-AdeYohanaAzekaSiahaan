@@ -7,13 +7,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Dorm")
 public class Dorm {
+    @Id
     @Column(name = "asrama", nullable = false, length = 255)
     private String asrama;
     @Column(name = "maxkapasitas", nullable = false, length = 255)
     private int maxkapasitas;
     @Column(name = "jenis", nullable = false, length = 255)
     private String jenis;
-    @Column(name = "penghuni", nullable = false, length = 1000)
+    //@Column(name = "penghuni", nullable = false, length = 1000)
     private ArrayList<Student> penghuni;
 
     public Dorm(String asrama, int maxkapasitas, String jenis) {
