@@ -1,0 +1,29 @@
+dorm-add#Pniel#5#female
+dorm-add#Kapernaum#5#male
+[EL Warning]: metadata: 2024-05-14 15:51:46.906--ServerSession(1256728724)--The java.lang.Object class was compiled with an unsupported JDK. Report this error to the EclipseLink open source project.
+java.lang.IllegalArgumentException: Unsupported class file major version 65
+[EL Severe]: metadata: 2024-05-14 15:51:46.906--ServerSession(1256728724)--The java.lang.Object class was compiled with an unsupported JDK. Report this error to the EclipseLink open source project.
+java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 0
+[EL Warning]: metadata: 2024-05-14 15:51:46.906--ServerSession(1256728724)--The java.lang.String class was compiled with an unsupported JDK. Report this error to the EclipseLink open source project.
+java.lang.IllegalArgumentException: Unsupported class file major version 65
+[EL Severe]: metadata: 2024-05-14 15:51:46.906--ServerSession(1256728724)--The java.lang.String class was compiled with an unsupported JDK. Report this error to the EclipseLink open source project.
+java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 0
+[EL Warning]: 2024-05-14 15:51:47.17--ServerSession(1256728724)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.10.v20211216-fe64cd39c3): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Students (nim VARCHAR(255) NOT NULL, jenisK VARCHAR(255) NOT NULL, nama VARCHAR(255) NOT NULL, [*]year VARCHAR(255) NOT NULL, PRIMARY KEY (nim))"; expected "identifier"; SQL statement:
+CREATE TABLE Students (nim VARCHAR(255) NOT NULL, jenisK VARCHAR(255) NOT NULL, nama VARCHAR(255) NOT NULL, year VARCHAR(255) NOT NULL, PRIMARY KEY (nim)) [42001-212]
+Error Code: 42001
+Call: CREATE TABLE Students (nim VARCHAR(255) NOT NULL, jenisK VARCHAR(255) NOT NULL, nama VARCHAR(255) NOT NULL, year VARCHAR(255) NOT NULL, PRIMARY KEY (nim))
+Query: DataModifyQuery(sql="CREATE TABLE Students (nim VARCHAR(255) NOT NULL, jenisK VARCHAR(255) NOT NULL, nama VARCHAR(255) NOT NULL, year VARCHAR(255) NOT NULL, PRIMARY KEY (nim))")
+student-add#12S21010#Bobby Siagian#2021#male
+student-add#12S21001#Dhino Turnip#2021#male
+student-add#12S21006#Weny Sitinjak#2021#female
+assign#12S21010#Kapernaum
+assign#12S21001#Kapernaum
+assign#12S21006#Pniel
+display-all
+Kapernaum|male|5|2
+12S21010|Bobby Siagian|2021
+12S21001|Dhino Turnip|2021
+Pniel|female|5|1
+12S21006|Weny Sitinjak|2021
+---

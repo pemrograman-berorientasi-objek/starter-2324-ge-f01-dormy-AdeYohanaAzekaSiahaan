@@ -118,7 +118,7 @@ Pniel|female|5|1
 12S21006|Weny Sitinjak|2021
 
 ```
-
+ 
 ## Reporting
 Lakukan pertemuan dengan pair anda untuk mendiskusikan persoalan dan pengembangan solusi. Rekaman dari pertemuan tersebut menjadi bagian dari artefak tugas yang harus dikumpulkan. Durasi rekaman minimal **30 menit**.
 
