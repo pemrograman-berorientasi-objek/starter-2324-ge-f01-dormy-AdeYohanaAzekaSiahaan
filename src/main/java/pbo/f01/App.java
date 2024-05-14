@@ -83,51 +83,12 @@ public class App {
 
             Dorm a = new Dorm(asrama, maxkapasitas, jenis);
             dorms.add(a);
-            Dorm cDorm = new Dorm (asrama, maxkapasitas, jenis);
+            entityManager.persist(a);
+           // Dorm cDorm = new Dorm (asrama, maxkapasitas, jenis);
             // System.out.println(a);
-        } else if (inputSegments[0].equals("assign")) {
-            String nim = inputSegments[1];
-            String asrama = inputSegments[2];
-
-            Student assignedStudent = null;
-            Dorm targetDorm = null;
-
-            for (Student student : students) {
-                if (student.getNim().equals(nim)) {
-                    assignedStudent = student;
-                    break;
-                }
-            }
-
-            for (Dorm dorm : dorms) {
-                if (dorm.getAsrama().equals(asrama)) {
-                    targetDorm = dorm;
-                    break;
-                }
-            }
-
-            if (assignedStudent != null && targetDorm != null) {
-                targetDorm.addPenghuni(assignedStudent);
-            }
-        } else if (inputSegments[0].equals("display-all")) {
-            // Sort dorms by name
-            Collections.sort(dorms, Comparator.comparing(Dorm::getAsrama));
-
-            for (Dorm dorm : dorms) {
-                // Display dorm information
-                System.out.println(dorm.getAsrama() + "|" + dorm.getJenis() + "|" + dorm.getMaxkapasitas() + "|" + dorm.getNumberOfStudents());
-
-                // Sort students by name within each dorm
-                Collections.sort(dorm.getPenghuni(), Comparator.comparing(Student::getNama));
-
-                // Display students in the dorm
-                for (Student student : dorm.getPenghuni()) {
-                    System.out.println(student.getNim() + "|" + student.getNama() + "|" + student.getYear());
-                }
-            }
         }
 
-        //entityManager.persist(cDorm);
+        //entityManager.persist(a);
 
         entityManager.flush();
         entityManager.getTransaction().commit();
