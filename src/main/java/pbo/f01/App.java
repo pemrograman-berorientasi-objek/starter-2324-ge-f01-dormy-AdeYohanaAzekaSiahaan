@@ -1,5 +1,7 @@
 package pbo.f01;
 
+import java.util.Comparator;
+
 /**
  * 12S22038 Ade Yohana Azeka Siahaan
  * 12S22044 - Jufourlisa Sirait
@@ -7,6 +9,8 @@ package pbo.f01;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -87,9 +91,14 @@ public class App {
                     List<Dorm> dorms = em.createQuery("SELECT d FROM Dorm d ORDER BY d.name", Dorm.class).getResultList();
                     for (Dorm dorm : dorms) {
                         System.out.println(dorm.toString());
-                        for (Student student : dorm.getStudents()) {
-                            System.out.println(student.toString());
+                        Set<Student> students = new TreeSet<Student>(Comparator.comparing(Student::getStudentName));
+                        students.addAll(dorm.getStudents());
+                        for (Student student : students) {
+                            System.out.println(student.getStudentId() + "|" + student.getStudentName() + "|" + student.getEntranceYear());
                         }
+
+                        
+
                     }
                     break;
                 case "---":
