@@ -1,60 +1,86 @@
 package pbo.f01.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Students")
+@Table(name = "students")
 public class Student {
+
     @Id
-    @Column(name = "nim", nullable = false, length = 255)
-    private String nim;
-    @Column(name = "nama", nullable = false, length = 255)
-    private String nama;
-    @Column(name = "year", nullable = false, length = 255)
-    private String year;
-    @Column(name = "jenisK", nullable = false, length = 255)
-    private String jenisK;
-    
+    @Column(name = "student_id", nullable = false)
+    private String studentId;
+
+    @Column(name = "student_name", nullable = false)
+    private String studentName;
+
+    @Column(name = "entrance_year", nullable = false)
+    private String entranceYear;
+
+    @Column(name = "gender", nullable = false)
+    private String gender;
+
+    @ManyToMany
+    private Set<Dorm> dorms = new HashSet<>();
+
     public Student() {
-        //
     }
 
-    public Student(String nim, String nama, String year, String jenisK) {
-        this.nim = nim;
-        this.nama = nama;
-        this.year = year;
-        this.jenisK = jenisK;
+    public Student(String studentId, String studentName, String entranceYear, String gender) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.entranceYear = entranceYear;
+        this.gender = gender;
     }
 
-    public String getNim() {
-        return nim;
+    // Getters and setters
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setNim(String nim) {
-        this.nim = nim;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    public String getNama() {
-        return nama;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setName(String nama) {
-        this.nama = nama;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public String getJenisK() {
-        return jenisK;
+    public String getEntranceYear() {
+        return entranceYear;
     }
 
-    public void setJenisK(String jenisK) {
-        this.jenisK = jenisK;
+    public void setEntranceYear(String entranceYear) {
+        this.entranceYear = entranceYear;
     }
 
-    public String getYear() {
-        return year;
+    public String getGender() {
+        return gender;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Set<Dorm> getDorms() {
+        return dorms;
+    }
+
+    public void setDorms(Set<Dorm> dorms) {
+        this.dorms = dorms;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s|%s|%s", studentId, studentName, entranceYear);
     }
 }

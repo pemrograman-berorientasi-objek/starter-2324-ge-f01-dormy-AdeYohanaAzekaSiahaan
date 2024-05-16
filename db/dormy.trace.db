@@ -1,6 +1,0 @@
-2024-05-14 15:51:47 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "STUDENTS" not found (this database is empty); SQL statement:
-SELECT 1 FROM Students [42104-212]
-2024-05-14 15:51:47 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE Students (nim VARCHAR(255) NOT NULL, jenisK VARCHAR(255) NOT NULL, nama VARCHAR(255) NOT NULL, [*]year VARCHAR(255) NOT NULL, PRIMARY KEY (nim))"; expected "identifier"; SQL statement:
-CREATE TABLE Students (nim VARCHAR(255) NOT NULL, jenisK VARCHAR(255) NOT NULL, nama VARCHAR(255) NOT NULL, year VARCHAR(255) NOT NULL, PRIMARY KEY (nim)) [42001-212]

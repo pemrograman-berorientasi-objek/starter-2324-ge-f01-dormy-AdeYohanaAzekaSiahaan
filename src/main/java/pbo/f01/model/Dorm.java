@@ -1,52 +1,85 @@
 package pbo.f01.model;
 
-import java.util.ArrayList;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
-@Table(name = "Dorm")
+@Table(name = "dorms")
 public class Dorm {
+
     @Id
-    @Column(name = "asrama", nullable = false, length = 255)
-    private String asrama;
-    @Column(name = "maxkapasitas", nullable = false, length = 255)
-    private int maxkapasitas;
-    @Column(name = "jenis", nullable = false, length = 255)
-    private String jenis;
-    //@Column(name = "penghuni", nullable = false, length = 1000)
-    private ArrayList<Student> penghuni;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    public Dorm(String asrama, int maxkapasitas, String jenis) {
-        this.asrama = asrama;
-        this.maxkapasitas = maxkapasitas;
-        this.jenis = jenis;
-        this.penghuni = new ArrayList<>();
+    @Column(name = "capacity", nullable = false)
+    private int capacity;
+
+    @Column(name = "gender", nullable = false)
+    private String gender;
+
+    @Column(name = "resident", nullable = false)
+    private int resident;
+
+    @ManyToMany(mappedBy = "dorms")
+    private Set<Student> students;
+
+    public Dorm() {
     }
 
-    public String getAsrama() {
-        return asrama;
+    public Dorm(String name, int capacity, String gender, int resident) {
+        this.name = name;
+        this.capacity = capacity;
+        this.gender = gender;
+        this.resident = resident;
     }
 
-    public int getMaxkapasitas() {
-        return maxkapasitas;
+    // Getters and setters
+    public String getName() {
+        return name;
     }
 
-    public String getJenis() {
-        return jenis;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public ArrayList<Student> getPenghuni() {
-        return penghuni;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void addPenghuni(Student student) {
-        if (penghuni.size() < maxkapasitas) {
-            penghuni.add(student);
-        }
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public int getNumberOfStudents() {
-        return penghuni.size();
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getResident() {
+        return resident;
+    }
+
+    public void setResident(int resident) {
+        this.resident = resident;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s|%s|%d|%d", name, gender, capacity, resident);
     }
 }
